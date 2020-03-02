@@ -33,7 +33,9 @@ POST : https://jlizardo019-firstapi.glitch.me/plants
 
 *In the body list the new plant object you would like to add to the API*
 
-Body: {
+Body: 
+<code>
+{
     "plantId": "string",
     
     "name": "string",
@@ -46,10 +48,11 @@ Body: {
     
     "imageUrl":"string"
 }
+</code>
 
 Response: updates the json file
 
-### POST
+### Delete
 DELETE : https://jlizardo019-firstapi.glitch.me/plants/plantidyouwantremoved 
 
 *In the url, name the plant id of the object you would like to remove from the API*

@@ -26,14 +26,24 @@ app.get("/plants",(req,res) =>{
 
 app.post("/plants", (req,res)=>
 {   console.log(req.body);
-    plants.push(req.body); // adding topping you want to 
+    plants.push(req.body); // adding the new plant you want to 
     console.log("post new plant");
     res.json(plants); //updating original file
 });
 
-app.put("/plants", (req,res)=>
+app.put("/plants/:name", (req,res)=>
 {
-
+    const itemToModify = req.params.name;
+    console.log("modifying");
+    console.log(req.body);
+    plants.forEach(plant => {
+        if (plant.plantId===itemToModify)
+        {
+            console.log("here");
+            plant.req.body.attribute = req.body.value; // might need to stringify json
+        }
+    });
+    res.json(plants);
 
 });
 
