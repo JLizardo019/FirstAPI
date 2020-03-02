@@ -20,7 +20,7 @@ console.log(plants);
 //endpoints
 
 app.get("/plants",(req,res) =>{
-    console.log("someone requested pizza toppings!");
+    console.log("someone requested plants!");
     res.json(plants); // the response 
 })
 
@@ -37,10 +37,12 @@ app.put("/plants", (req,res)=>
 
 });
 
-app.delete("/toppings/:name", (req, res) => {
+app.delete("/plants/:name", (req, res) => {
     const itemToDelete = req.params.name;
-    plants = plants.plantID.filter(plants => plants !== itemToDelete);
-    res.json({ success: true });
+    console.log("deleting");
+    //console.log(plants);
+    plants = plants.filter(plant => plant.plantId !== itemToDelete);
+    res.json(plants);
   });
 
 app.listen(3000, ()=> {
